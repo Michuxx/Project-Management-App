@@ -17,6 +17,19 @@ function App() {
       };
     });
   }
+  function handleAddProject(projectData) {
+    setProjectsState((prev) => {
+      const newProject = {
+        ...projectData,
+        id: Math.random(),
+      };
+
+      return {
+        ...prev,
+        projects: [...prev.projects, newProject],
+      };
+    });
+  }
   function handleCancelProject() {
     setProjectsState((prev) => {
       return {
@@ -25,9 +38,17 @@ function App() {
       };
     });
   }
+
+  console.log(projectsState);
+
   let content;
   if (projectsState.selectedProjectID === null) {
-    content = <NewProject OnCancelProject={handleCancelProject} />;
+    content = (
+      <NewProject
+        OnCancelProject={handleCancelProject}
+        onAdd={handleAddProject}
+      />
+    );
   } else if (projectsState.selectedProjectID === undefined) {
     content = <NoProjectSelected OnStartAddProcjet={handleStartAddProject} />;
   }
