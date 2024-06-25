@@ -1,6 +1,6 @@
 import noProjectImgae from "../assets/no-projects.png";
 
-export default function NoProjectSelected({ OnStartAddProcjet }) {
+export default function NoProjectSelected({ OnStartAddProject }) {
   return (
     <div className="mt-24 text-center w-2/3">
       <img
@@ -17,7 +17,7 @@ export default function NoProjectSelected({ OnStartAddProcjet }) {
       <p className="mt-8">
         <button
           className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950"
-          onClick={OnStartAddProcjet}
+          onClick={OnStartAddProject}
         >
           Create new Project
         </button>
